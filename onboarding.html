@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comenzar Proyecto - SIGRED</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    
+    <header style="justify-content: center;">
+        <div class="logo-container">
+            <span class="logo-texto">SIGRED</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="contenedor-seccion" style="padding-top: 3rem;">
+            <h2>Último paso para arrancar</h2>
+            <p class="subtitulo">Completá este breve cuestionario para que conozcamos los detalles de tu negocio. Al enviarlo, vas a poder abonar el desarrollo de forma segura para reservar tu lugar.</p>
+            
+            <div class="caja-onboarding">
+                
+                <div class="contenedor-tally">
+                    <!-- Tu formulario Tally Oficial -->
+                    <iframe src="https://tally.so/embed/GxWX5e?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Formulario SIGRED"></iframe>
+                </div>
+
+                <div class="separador"></div>
+
+                <div class="zona-pago" style="text-align: center;">
+                    <h3>¿Ya enviaste el formulario?</h3>
+                    <p style="margin-bottom: 2rem;">Aboná el inicio del proyecto mediante Mercado Pago. Una vez confirmado, nos pondremos a trabajar en tu web.</p>
+                    
+                    <button id="btn-pagar-landing" class="btn-pago-mp">Abonar Desarrollo ($ 50.000)</button>
+                    <br><small style="color: var(--texto-gris);">Procesado de forma segura por Mercado Pago</small>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Fundamental: Este es el único lugar donde cargamos el código que llama a Mercado Pago -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

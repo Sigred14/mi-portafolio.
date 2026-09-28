@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comenzar Tienda - SIGRED</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    
+    <header style="justify-content: center;">
+        <div class="logo-container">
+            <span class="logo-texto">SIGRED</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="contenedor-seccion" style="padding-top: 3rem;">
+            <h2>Configuremos tu Tienda</h2>
+            <p class="subtitulo">Completá el cuestionario con los detalles de tus productos. Al enviarlo, vas a poder abonar el desarrollo para que empecemos a armar tu E-commerce.</p>
+            
+            <div class="caja-onboarding">
+                
+                <div class="contenedor-tally">
+                    <!-- Podés usar el mismo formulario o crear uno nuevo en Tally específico para e-commerce -->
+                    <iframe src="https://tally.so/embed/GxWX5e?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Formulario E-commerce"></iframe>
+                </div>
+
+                <div class="separador"></div>
+
+                <div class="zona-pago" style="text-align: center;">
+                    <h3>¿Ya enviaste el formulario?</h3>
+                    <p style="margin-bottom: 2rem;">Aboná el inicio del proyecto mediante Mercado Pago.</p>
+                    
+                    <!-- NOTA EL ID: btn-pagar-ecommerce -->
+                    <button id="btn-pagar-ecommerce" class="btn-pago-mp">Abonar Desarrollo Tienda ($ 150.000)</button>
+                    <br><small style="color: var(--texto-gris);">Procesado de forma segura por Mercado Pago</small>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

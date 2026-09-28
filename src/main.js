@@ -1,57 +1,51 @@
 import './style.css'; 
 
-console.log("🚀 Iniciando sistema de JS...");
-
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("✅ El HTML cargó correctamente.");
     
-    // Buscamos el botón en el HTML por su ID
-    const botonLanding = document.getElementById('btn-comprar-landing');
+    const botonLanding = document.getElementById('btn-pagar-landing');
+    const botonEcommerce = document.getElementById('btn-pagar-ecommerce');
 
-    if (botonLanding) {
-        console.log("✅ ¡Botón Landing encontrado con éxito!");
+    // Función general para cobrar
+    async function procesarPago(boton, tipoDePlan) {
+        boton.preventDefault(); 
         
-        botonLanding.addEventListener('click', async (e) => {
-            e.preventDefault(); // Evitamos que la página salte hacia arriba
-            console.log("🖱️ ¡Clic detectado! Avisando al Backend...");
+        const textoOriginal = boton.target.innerText;
+        boton.target.innerText = "Conectando con Mercado Pago...";
+        boton.target.style.pointerEvents = "none";
+        boton.target.style.opacity = "0.7";
+
+        try {
+            // Le enviamos al backend QUÉ plan estamos comprando
+            const respuesta = await fetch('/api/pago', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tipoPlan: tipoDePlan }) // 'landing' o 'ecommerce'
+            });
             
-            // Efecto visual de carga en el botón
-            const textoOriginal = botonLanding.innerText;
-            botonLanding.innerText = "Generando cobro seguro...";
-            botonLanding.style.pointerEvents = "none";
-            botonLanding.style.opacity = "0.7";
+            const datos = await respuesta.json();
 
-            try {
-                // Tocamos el timbre de nuestro Backend seguro
-                const respuesta = await fetch('/api/pago', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' }
-                });
-
-                console.log("📩 Respuesta del Backend status:", respuesta.status);
-                
-                const datos = await respuesta.json();
-                console.log("📦 Datos recibidos del Backend:", datos);
-
-                // Si el Backend nos devuelve el link, lo abrimos
-                if (datos.url_pago) {
-                    console.log("🔗 Redirigiendo a Mercado Pago...");
-                    window.location.href = datos.url_pago;
-                } else {
-                    console.error("❌ El Backend no devolvió la URL:", datos);
-                    alert("Error: No se pudo generar el pago.");
-                }
-            } catch (error) {
-                console.error("❌ Error de conexión:", error);
-                alert("Hubo un error de conexión con el servidor.");
-            } finally {
-                // Restauramos el botón a su estado normal
-                botonLanding.innerText = textoOriginal;
-                botonLanding.style.pointerEvents = "auto";
-                botonLanding.style.opacity = "1";
+            if (datos.url_pago) {
+                window.location.href = datos.url_pago;
+            } else {
+                alert("Error: No se pudo generar el pago.");
             }
-        });
-    } else {
-        console.error("❌ ERROR CRÍTICO: No encontré el botón en el HTML.");
+        } catch (error) {
+            console.error("Error de conexión:", error);
+            alert("Hubo un error de conexión con el servidor.");
+        } finally {
+            boton.target.innerText = textoOriginal;
+            boton.target.style.pointerEvents = "auto";
+            boton.target.style.opacity = "1";
+        }
+    }
+
+    // Si existe el botón de Landing en la pantalla, lo escuchamos
+    if (botonLanding) {
+        botonLanding.addEventListener('click', (e) => procesarPago(e, 'landing'));
+    }
+
+    // Si existe el botón de E-commerce en la pantalla, lo escuchamos
+    if (botonEcommerce) {
+        botonEcommerce.addEventListener('click', (e) => procesarPago(e, 'ecommerce'));
     }
 });
