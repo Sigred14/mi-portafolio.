@@ -5,84 +5,141 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Título de la pestaña del navegador -->
     <title>SIGRED - Desarrollo Web y Managed Hosting</title>
-
-    <!-- SEO Básico para Google -->
-    <meta name="description" content="Agencia de Desarrollo Web y Managed Hosting. Creamos sitios seguros, rápidos y con pagos integrados para llevar tu negocio al entorno digital." />
+    <meta name="description" content="Agencia de Desarrollo Web y Managed Hosting. Creamos sitios seguros, rápidos y con pagos integrados." />
     <meta name="author" content="SIGRED Web Studio" />
 
-    <!-- Etiquetas Open Graph para WhatsApp, Facebook, LinkedIn, etc. -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sigred-webs-lobby.vercel.app/" />
     <meta property="og:title" content="SIGRED Web Studio | Desarrollo y Hosting" />
-    <meta property="og:description" content="Infraestructura sólida, cero caídas y pagos integrados. Llevamos tu negocio al entorno digital sin complicaciones." />
-    
-    <!-- Imagen para previsualización en redes y WhatsApp -->
+    <meta property="og:description" content="Infraestructura sólida, cero caídas y pagos integrados. Llevamos tu negocio al entorno digital." />
     <meta property="og:image" content="https://sigred-webs-lobby.vercel.app/logo.jpg" />
 
-    <!-- Tu hoja de estilos -->
     <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
     
-    <!-- Barra de Navegación -->
     <header>
-        <div class="logo">SIGRED</div>
+        <div class="logo-container">
+            <img src="/logo.jpg" alt="Logo SIGRED" class="logo-img">
+            <span class="logo-texto">SIGRED</span>
+        </div>
         <nav>
-            <a href="#servicios">Servicios</a>
+            <a href="#planes">Planes</a>
             <a href="#proyectos">Proyectos</a>
             <a href="#contacto" class="btn-contacto">Contactar</a>
         </nav>
     </header>
 
-    <!-- Contenido Principal -->
     <main>
-        
-        <!-- Portada (Hero) -->
         <section id="hero">
             <h1>Desarrollamos webs seguras.</h1>
-            <p>Infraestructura sólida, cero caídas y pagos integrados. Llevamos tu negocio al entorno digital sin complicaciones técnicas.</p>
+            <p>Especialistas en páginas ultrarrápidas, sin caídas de servidor y con pasarelas de pago integradas. Escalamos tu negocio digital sin complicaciones técnicas.</p>
             <div class="hero-botones">
-                <a href="#contacto" class="btn-primario">Empezar mi proyecto</a>
+                <a href="#planes" class="btn-primario">Ver planes</a>
                 <a href="#proyectos" class="btn-secundario">Ver trabajos</a>
             </div>
         </section>
 
-        <!-- Sección de Servicios -->
-        <section id="servicios" class="contenedor-servicios">
-            <h2>Nuestros Servicios</h2>
+        <section id="planes" class="contenedor-servicios">
+            <h2>Nuestros Planes de Desarrollo</h2>
             <div class="grilla-servicios">
                 
                 <div class="tarjeta-servicio">
-                    <h3>Desarrollo Web Inicial</h3>
-                    <p>Diseño de Landing Page interactiva, conectada a tu dominio y optimizada para ventas.</p>
+                    <h3>Landing / Portafolio</h3>
+                    <p>Páginas de exhibición ideales para profesionales y servicios.</p>
                     <div class="precio-pack">
                         <span>$50.000</span>
-                        <small>Pago único</small>
+                        <small>Desarrollo (Pago único)</small>
                     </div>
-                    <!-- Link real de Mercado Pago -->
-                    <a href="https://mpago.la/16Frs2q" target="_blank" class="btn-primario btn-comprar">Comprar ahora</a>
+                    <ul class="lista-caracteristicas">
+                        <li>✅ Diseño de 1 página o Portafolio</li>
+                        <li>✅ Enlaces a Redes Sociales</li>
+                        <li>✅ Botón directo a WhatsApp</li>
+                        <li>✅ Formulario de contacto básico</li>
+                    </ul>
+                    <div class="mantenimiento-info">
+                        Mantenimiento: <strong>$20.000 / mes</strong>
+                    </div>
+                    <a href="#" id="btn-comprar-landing" class="btn-secundario btn-comprar">Comprar Desarrollo ($50.000)</a>
+                </div>
+                
+                <div class="tarjeta-servicio tarjeta-destacada">
+                    <div class="etiqueta-recomendado">Más elegido</div>
+                    <h3>E-commerce / Tienda</h3>
+                    <p>Venta de productos con gestión automática de cobros.</p>
+                    <div class="precio-pack">
+                        <span>$120.000</span>
+                        <small>Desarrollo (Pago único)</small>
+                    </div>
+                    <ul class="lista-caracteristicas">
+                        <li>✅ Catálogo de productos</li>
+                        <li>✅ Gestión con Mercado Pago</li>
+                        <li>✅ Enlaces a Redes Sociales</li>
+                        <li>✅ Conexión directa a WhatsApp</li>
+                    </ul>
+                    <div class="mantenimiento-info">
+                        Mantenimiento: <strong>$40.000 / mes</strong>
+                    </div>
+                    <a href="#info-pagos" class="btn-primario btn-comprar">Ver detalles de pago</a>
                 </div>
                 
                 <div class="tarjeta-servicio">
-                    <h3>Managed Hosting</h3>
-                    <p>Gestionamos el alojamiento 24/7 y conectamos tu dominio personalizado (.com.ar) para que no tengas que preocuparte por la infraestructura técnica.</p>
-                </div>
-                
-                <div class="tarjeta-servicio">
-                    <h3>Integraciones Seguras</h3>
-                    <p>Implementamos pasarelas de cobro y herramientas de terceros para proteger los datos y automatizar la gestión de tus clientes.</p>
+                    <h3>Proyecto Personalizado</h3>
+                    <p>Webs con funciones específicas a requerimiento del cliente.</p>
+                    <div class="precio-pack">
+                        <span>A cotizar</span>
+                        <small>Según presupuesto</small>
+                    </div>
+                    <ul class="lista-caracteristicas">
+                        <li>✅ Funciones y secciones ilimitadas</li>
+                        <li>✅ Integraciones especiales</li>
+                        <li>✅ Ajuste exacto a tu negocio</li>
+                        <li>✅ Escalabilidad total</li>
+                    </ul>
+                    <div class="mantenimiento-info">
+                        Mantenimiento: <strong>A definir</strong>
+                    </div>
+                    <a href="#contacto" class="btn-secundario btn-comprar">Consultar presupuesto</a>
                 </div>
 
             </div>
         </section>
 
-        <!-- Sección de Proyectos (Portfolio) -->
+        <section id="info-pagos" class="contenedor-pagos">
+            <div class="caja-pagos">
+                <h2>Condiciones y Débito Automático</h2>
+                <p class="subtitulo-pagos">Antes de contratar, te explicamos cómo funciona nuestra modalidad de trabajo y el mantenimiento para garantizar que tu web esté siempre rápida, segura y online.</p>
+                
+                <div class="detalles-pagos">
+                    <div class="item-pago">
+                        <h3>1. Desarrollo Inicial (Pago Único)</h3>
+                        <p>Corresponde al armado, diseño y programación de tu página. Se abona por única vez al iniciar el proyecto.</p>
+                    </div>
+                    <div class="item-pago">
+                        <h3>2. Managed Hosting (Mensual)</h3>
+                        <p>Para que la web siga funcionando en internet, requiere un abono. Esto incluye alojamiento en servidores ultrarrápidos, renovaciones de seguridad y soporte técnico ante eventualidades.</p>
+                    </div>
+                    <div class="item-pago">
+                        <h3>3. Débito Automático</h3>
+                        <p>El abono se gestiona mediante una suscripción segura a través de <strong>Mercado Pago</strong> (tarjeta de crédito, débito o dinero en cuenta). Se debitará mes a mes de forma automática sin que tengas que hacer trámites manuales.</p>
+                    </div>
+                    <div class="item-pago alerta-pago">
+                        <h3>⚠️ Ajustes de Precio</h3>
+                        <p>El valor del mantenimiento mensual está sujeto a actualizaciones periódicas según la inflación y los costos operativos de los servidores. Cualquier aumento será notificado debidamente.</p>
+                    </div>
+                </div>
+
+                <div class="botones-suscripcion">
+                    <a href="ENLACE_MERCADO_PAGO_LANDING" target="_blank" class="btn-secundario">Suscribirse: Landing ($20.000/mes)</a>
+                    <a href="ENLACE_MERCADO_PAGO_TIENDA" target="_blank" class="btn-primario">Suscribirse: Tienda ($40.000/mes)</a>
+                </div>
+            </div>
+        </section>
+
         <section id="proyectos" class="contenedor-proyectos">
             <h2>Trabajos Reales</h2>
             <div class="grilla-proyectos">
-                
                 <div class="tarjeta-proyecto">
                     <img src="https://picsum.photos/seed/sigred1/400/300" alt="E-commerce">
                     <div class="info-proyecto">
@@ -90,7 +147,6 @@
                         <p>Diseño web y conexión con pasarela de pagos.</p>
                     </div>
                 </div>
-
                 <div class="tarjeta-proyecto">
                     <img src="https://picsum.photos/seed/sigred2/400/550" alt="Landing Page">
                     <div class="info-proyecto">
@@ -98,7 +154,6 @@
                         <p>Generación de leads y formulario automatizado.</p>
                     </div>
                 </div>
-
                 <div class="tarjeta-proyecto">
                     <img src="https://picsum.photos/seed/sigred3/400/400" alt="App Interna">
                     <div class="info-proyecto">
@@ -106,7 +161,6 @@
                         <p>Panel de control con registro de usuarios y base de datos.</p>
                     </div>
                 </div>
-
                 <div class="tarjeta-proyecto">
                     <img src="https://picsum.photos/seed/sigred4/400/350" alt="Institucional">
                     <div class="info-proyecto">
@@ -114,27 +168,21 @@
                         <p>Presencia digital corporativa para estudio de abogados.</p>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- Sección de Contacto -->
         <section id="contacto" class="contenedor-contacto">
             <div class="caja-contacto">
                 <h2>¿Hablamos de tu proyecto?</h2>
                 <p>Completá el formulario con los detalles de tu idea o escribime directo para sacarte las dudas.</p>
                 <div class="botones-contacto">
-                    <!-- Link real de Tally -->
                     <a href="https://tally.so/r/GxWX5e" target="_blank" class="btn-primario">Completar formulario</a>
-                    <!-- Link real de WhatsApp -->
                     <a href="https://wa.me/541155972972" target="_blank" class="btn-secundario">Escribir por WhatsApp</a>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- Pie de página -->
     <footer>
         <p>© 2026 SIGRED Web Studio. Todos los derechos reservados.</p>
     </footer>

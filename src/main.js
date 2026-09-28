@@ -1,60 +1,57 @@
-import './style.css'
-import heroImg from './assets/hero.png'
-import javascriptLogo from './assets/javascript.svg'
-import viteLogo from './assets/vite.svg'
-import { setupCounter } from './counter.js'
+import './style.css'; 
 
-document.querySelector('#app').innerHTML = `
-<section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${javascriptLogo}" class="framework" alt="JavaScript logo"/>
-    <img src="${viteLogo}" class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.js</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
-</section>
+console.log("🚀 Iniciando sistema de JS...");
 
-<div class="ticks"></div>
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("✅ El HTML cargó correctamente.");
+    
+    // Buscamos el botón en el HTML por su ID
+    const botonLanding = document.getElementById('btn-comprar-landing');
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src="${viteLogo}" alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-          <img class="button-icon" src="${javascriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
+    if (botonLanding) {
+        console.log("✅ ¡Botón Landing encontrado con éxito!");
+        
+        botonLanding.addEventListener('click', async (e) => {
+            e.preventDefault(); // Evitamos que la página salte hacia arriba
+            console.log("🖱️ ¡Clic detectado! Avisando al Backend...");
+            
+            // Efecto visual de carga en el botón
+            const textoOriginal = botonLanding.innerText;
+            botonLanding.innerText = "Generando cobro seguro...";
+            botonLanding.style.pointerEvents = "none";
+            botonLanding.style.opacity = "0.7";
 
-<div class="ticks"></div>
-<section id="spacer"></section>
-`
+            try {
+                // Tocamos el timbre de nuestro Backend seguro
+                const respuesta = await fetch('/api/pago', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
 
-setupCounter(document.querySelector('#counter'))
+                console.log("📩 Respuesta del Backend status:", respuesta.status);
+                
+                const datos = await respuesta.json();
+                console.log("📦 Datos recibidos del Backend:", datos);
+
+                // Si el Backend nos devuelve el link, lo abrimos
+                if (datos.url_pago) {
+                    console.log("🔗 Redirigiendo a Mercado Pago...");
+                    window.location.href = datos.url_pago;
+                } else {
+                    console.error("❌ El Backend no devolvió la URL:", datos);
+                    alert("Error: No se pudo generar el pago.");
+                }
+            } catch (error) {
+                console.error("❌ Error de conexión:", error);
+                alert("Hubo un error de conexión con el servidor.");
+            } finally {
+                // Restauramos el botón a su estado normal
+                botonLanding.innerText = textoOriginal;
+                botonLanding.style.pointerEvents = "auto";
+                botonLanding.style.opacity = "1";
+            }
+        });
+    } else {
+        console.error("❌ ERROR CRÍTICO: No encontré el botón en el HTML.");
+    }
+});
