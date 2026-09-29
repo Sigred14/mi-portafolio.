@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const botonLanding = document.getElementById('btn-pagar-landing');
     const botonEcommerce = document.getElementById('btn-pagar-ecommerce');
 
-    // Función general para cobrar
     async function procesarPago(boton, tipoDePlan) {
         boton.preventDefault(); 
         
@@ -15,11 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
         boton.target.style.opacity = "0.7";
 
         try {
-            // Le enviamos al backend QUÉ plan estamos comprando
             const respuesta = await fetch('/api/pago', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ tipoPlan: tipoDePlan }) // 'landing' o 'ecommerce'
+                body: JSON.stringify({ tipoPlan: tipoDePlan })
             });
             
             const datos = await respuesta.json();
@@ -39,12 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Si existe el botón de Landing en la pantalla, lo escuchamos
     if (botonLanding) {
         botonLanding.addEventListener('click', (e) => procesarPago(e, 'landing'));
     }
 
-    // Si existe el botón de E-commerce en la pantalla, lo escuchamos
     if (botonEcommerce) {
         botonEcommerce.addEventListener('click', (e) => procesarPago(e, 'ecommerce'));
     }

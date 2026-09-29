@@ -5,26 +5,25 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Método no permitido' });
     }
 
-    // Averiguamos qué plan eligió el usuario
-    const { tipoPlan } = req.body;
-
-    let tituloProducto = '';
-    let precioFinal = 0;
-
-    // Asignamos el precio seguro del lado del servidor
-    if (tipoPlan === 'ecommerce') {
-        tituloProducto = 'Desarrollo Web - E-commerce (SIGRED)';
-        precioFinal = 150000;
-    } else {
-        // Por defecto cobra la Landing
-        tituloProducto = 'Desarrollo Web - Landing Page (SIGRED)';
-        precioFinal = 50000;
-    }
-
-    const client = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN });
-    const preference = new Preference(client);
-
     try {
+        if (!process.env.MP_ACCESS_TOKEN) {
+            throw new Error("CRÍTICO: No se encontró el MP_ACCESS_TOKEN. Revisa tu archivo .env");
+        }
+
+        const cuerpo = req.body || {};
+        const tipoPlan = cuerpo.tipoPlan || 'landing';
+
+        let tituloProducto = 'Desarrollo Web - Landing Page (SIGRED)';
+        let precioFinal = 50000;
+
+        if (tipoPlan === 'ecommerce') {
+            tituloProducto = 'Desarrollo Web - E-commerce (SIGRED)';
+            precioFinal = 150000;
+        }
+
+        const client = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN });
+        const preference = new Preference(client);
+
         const result = await preference.create({
             body: {
                 items: [
@@ -44,9 +43,13 @@ export default async function handler(req, res) {
             }
         });
 
-        res.status(200).json({ url_pago: result.init_point });
+        return res.status(200).json({ url_pago: result.init_point });
+        
     } catch (error) {
-        console.error("Error en Mercado Pago:", error);
-        res.status(500).json({ error: 'Error al generar link de pago' });
+        console.error("EL BACKEND FALLÓ:", error.message);
+        return res.status(500).json({ 
+            error: 'Fallo interno', 
+            detalle: error.message 
+        });
     }
 }

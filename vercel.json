@@ -1,6 +1,12 @@
 {
-    "buildCommand": "npm run build",
-    "outputDirectory": "dist",
-    "cleanUrls": true,
-    "trailingSlash": false
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/plan-landing", "destination": "/plan-landing.html" },
+    { "source": "/plan-ecommerce", "destination": "/plan-ecommerce.html" },
+    { "source": "/onboarding", "destination": "/onboarding.html" },
+    { "source": "/onboarding-ecommerce", "destination": "/onboarding-ecommerce.html" }
+  ]
 }

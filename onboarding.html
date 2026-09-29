@@ -9,29 +9,33 @@
 </head>
 <body>
     
-    <header style="justify-content: center;">
+    <header>
         <div class="logo-container">
+            <img src="/logo.jpg" alt="Logo SIGRED" class="logo-img">
             <span class="logo-texto">SIGRED</span>
         </div>
+        <nav>
+            <!-- Este botón vuelve a la explicación del plan por si quieren repasar -->
+            <a href="/plan-landing.html" class="btn-volver">← Volver al plan</a>
+        </nav>
     </header>
 
     <main>
         <section class="contenedor-seccion" style="padding-top: 3rem;">
             <h2>Último paso para arrancar</h2>
-            <p class="subtitulo">Completá este breve cuestionario para que conozcamos los detalles de tu negocio. Al enviarlo, vas a poder abonar el desarrollo de forma segura para reservar tu lugar.</p>
+            <p class="subtitulo">Completá este breve cuestionario para que conozcamos los detalles de tu negocio. Al enviarlo, vas a poder abonar el desarrollo de forma segura.</p>
             
             <div class="caja-onboarding">
                 
                 <div class="contenedor-tally">
-                    <!-- Tu formulario Tally Oficial -->
                     <iframe src="https://tally.so/embed/GxWX5e?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Formulario SIGRED"></iframe>
                 </div>
 
                 <div class="separador"></div>
 
-                <div class="zona-pago" style="text-align: center;">
-                    <h3>¿Ya enviaste el formulario?</h3>
-                    <p style="margin-bottom: 2rem;">Aboná el inicio del proyecto mediante Mercado Pago. Una vez confirmado, nos pondremos a trabajar en tu web.</p>
+                <div class="zona-pago">
+                    <h3 style="color: var(--negro-absoluto);">¿Ya enviaste el formulario?</h3>
+                    <p style="margin-bottom: 2rem; color: var(--texto-gris);">Aboná el inicio del proyecto mediante Mercado Pago. Una vez confirmado, nos pondremos a trabajar en tu web de inmediato.</p>
                     
                     <button id="btn-pagar-landing" class="btn-pago-mp">Abonar Desarrollo ($ 50.000)</button>
                     <br><small style="color: var(--texto-gris);">Procesado de forma segura por Mercado Pago</small>
@@ -40,7 +44,6 @@
         </section>
     </main>
 
-    <!-- Fundamental: Este es el único lugar donde cargamos el código que llama a Mercado Pago -->
     <script type="module" src="/src/main.js"></script>
 </body>
 </html>

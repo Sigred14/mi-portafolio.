@@ -4,46 +4,60 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SIGRED - Desarrollo Web</title>
+    <title>SIGRED - Desarrollo Web y E-commerce</title>
     <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
     
     <header>
         <div class="logo-container">
+            <img src="/logo.jpg" alt="Logo SIGRED" class="logo-img">
             <span class="logo-texto">SIGRED</span>
         </div>
         <nav>
-            <a href="#servicios">Servicios</a>
+            <!-- Enlace a tu futura página de trabajos -->
+            <a href="/trabajos.html">Trabajos</a>
+            <!-- Botón directo a WhatsApp -->
+            <a href="https://wa.me/541155972972?text=Hola,%20me%20gustaría%20hacer%20una%20consulta%20sobre%20un%20proyecto" target="_blank" class="btn-contacto">WhatsApp</a>
         </nav>
     </header>
 
     <main>
+        <!-- HERO -->
         <section id="hero">
-            <h1>Llevamos tu negocio al entorno digital.</h1>
-            <p style="color: #e5e5e5; font-size: 1.3rem;">Infraestructura sólida, cero caídas y pasarelas de pago. No hacemos solo páginas, creamos herramientas de venta.</p>
-            <div class="hero-botones" style="margin-top: 2rem;">
-                <a href="#servicios" class="btn-primario">Ver soluciones</a>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h1>Llevamos tu negocio al entorno digital.</h1>
+                <p style="font-size: 1.4rem; margin-bottom: 2.5rem; color: #E4E4E7;">Infraestructura sólida, cero caídas y pasarelas de pago. No hacemos solo páginas, creamos herramientas de venta.</p>
+                <a href="#servicios" class="btn-blanco">Ver soluciones</a>
             </div>
         </section>
 
+        <!-- SECCIÓN DE SERVICIOS -->
         <section id="servicios" class="contenedor-seccion">
             <h2>¿Qué solución necesita tu negocio?</h2>
-            <p class="subtitulo">Elegí la herramienta que mejor se adapte a tus objetivos.</p>
+            <p class="subtitulo">Elegí la herramienta que mejor se adapte a tus objetivos comerciales.</p>
             
             <div class="grilla-servicios">
+                
                 <div class="tarjeta-servicio">
-                    <h3>Landing Page / Portafolio</h3>
-                    <p>Ideal para profesionales que necesitan presencia digital. Una página web rápida, directa al grano, diseñada para captar clientes y derivarlos a tu WhatsApp o correo.</p>
+                    <div class="tarjeta-contenido">
+                        <h3 style="color: var(--negro-absoluto);">Landing Page / Portafolio</h3>
+                        <p style="color: var(--texto-gris);">Ideal para profesionales que necesitan presencia digital. Una página web rápida, directa al grano, diseñada para captar clientes y derivarlos a tu WhatsApp.</p>
+                    </div>
                     <a href="/plan-landing.html" class="btn-secundario">Ver detalles e inversión</a>
                 </div>
                 
                 <div class="tarjeta-servicio tarjeta-destacada">
-                    <h3>E-commerce / Tienda Online</h3>
-                    <p>Vende tus productos las 24 horas. Incluye catálogo completo, carrito de compras, gestión de stock y cobros automáticos con Mercado Pago.</p>
-                    <!-- EL ENLACE DEL E-COMMERCE ACTUALIZADO -->
-                    <a href="/plan-ecommerce.html" class="btn-secundario">Ver detalles e inversión</a>
+                    <!-- Nueva Etiqueta Estética (Pastilla superior) -->
+                    <div class="badge-recomendado">MÁS RECOMENDADO</div>
+                    
+                    <div class="tarjeta-contenido">
+                        <h3 style="color: var(--negro-absoluto);">E-commerce / Tienda Online</h3>
+                        <p style="color: var(--texto-gris);">Vende tus productos las 24 horas. Incluye catálogo completo, carrito de compras, gestión de stock y cobros automáticos con Mercado Pago.</p>
+                    </div>
+                    <a href="/plan-ecommerce.html" class="btn-primario">Ver detalles e inversión</a>
                 </div>
+
             </div>
         </section>
     </main>
