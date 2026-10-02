@@ -15,7 +15,6 @@
             <span class="logo-texto">SIGRED</span>
         </div>
         <nav>
-            <!-- Este botón vuelve a la explicación del plan por si quieren repasar -->
             <a href="/plan-ecommerce.html" class="btn-volver">← Volver al plan</a>
         </nav>
     </header>
@@ -27,18 +26,24 @@
             
             <div class="caja-onboarding">
                 
-                <div class="contenedor-tally">
-                    <iframe src="https://tally.so/embed/GxWX5e?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Formulario E-commerce"></iframe>
+                <!-- CONTENEDOR DE GOOGLE FORMS -->
+                <div class="contenedor-form-externo" style="height: 600px;">
+                    <!-- REEMPLAZAR ESTE ENLACE DE ABAJO (src="...") POR EL TUYO -->
+                    <iframe src="https://docs.google.com/forms/d/14KXOVFoUmA4FyUFt7OaLWUwtZsGYD-ZCTBCuBgz_Nyc/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
                 </div>
 
                 <div class="separador"></div>
 
                 <div class="zona-pago">
                     <h3 style="color: var(--negro-absoluto);">¿Ya enviaste el formulario?</h3>
-                    <p style="margin-bottom: 2rem; color: var(--texto-gris);">Aboná el inicio del proyecto mediante Mercado Pago. Una vez confirmado, crearemos tu infraestructura comercial.</p>
+                    <p style="margin-bottom: 2rem; color: var(--texto-gris);">Aboná el inicio del proyecto. Una vez confirmado, crearemos tu infraestructura comercial.</p>
                     
-                    <button id="btn-pagar-ecommerce" class="btn-pago-mp">Abonar Desarrollo Tienda ($ 150.000)</button>
-                    <br><small style="color: var(--texto-gris);">Procesado de forma segura por Mercado Pago</small>
+                    <div class="contenedor-botones-pago">
+                        <button id="btn-pagar-ecommerce" class="btn-pago-mp">💳 Abonar con Mercado Pago ($ 150.000)</button>
+                        
+                        <a href="https://wa.me/541155972972?text=Hola!%20Ya%20completé%20el%20formulario%20para%20el%20E-commerce.%20Me%20gustaría%20abonar%20mediante%20transferencia%20u%20otro%20medio%20de%20pago." target="_blank" class="btn-pago-wsp">💬 Otros medios de pago</a>
+                    </div>
+                    <small style="color: var(--texto-gris); display: block; margin-top: 0.5rem;">Pagos procesados de forma segura.</small>
                 </div>
             </div>
         </section>

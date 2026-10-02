@@ -182,13 +182,36 @@ nav a:hover { color: var(--texto-gris); }
 .contenedor-tally { width: 100%; margin-bottom: 2rem; }
 .separador { height: 1px; background-color: var(--borde); margin: 3rem 0; }
 
+
+.caja-onboarding { background-color: var(--blanco-puro); padding: 3rem 2rem; border-radius: 16px; border: 1px solid var(--borde); box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
+.contenedor-form-externo { width: 100%; margin-bottom: 2rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--borde); }
+.separador { height: 1px; background-color: var(--borde); margin: 3rem 0; }
+
+.contenedor-botones-pago {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; /* En celulares se ponen uno arriba del otro */
+    margin-bottom: 1rem;
+}
+
 .btn-pago-mp {
     background-color: var(--mp); color: var(--blanco-puro); border: none;
-    padding: 1.2rem 3rem; font-size: 1.2rem; font-weight: 800;
-    border-radius: 8px; cursor: pointer; width: 100%; max-width: 400px;
-    transition: transform 0.2s, background-color 0.2s; margin-bottom: 1rem;
+    padding: 1.2rem 1.5rem; font-size: 1.1rem; font-weight: 800;
+    border-radius: 8px; cursor: pointer; flex: 1; min-width: 250px;
+    transition: transform 0.2s, background-color 0.2s;
     box-shadow: 0 4px 15px rgba(0, 158, 227, 0.3);
 }
 .btn-pago-mp:hover { background-color: #007eb5; transform: scale(1.02); }
 
+.btn-pago-wsp {
+    background-color: #25D366; color: var(--blanco-puro); border: none;
+    padding: 1.2rem 1.5rem; font-size: 1.1rem; font-weight: 800;
+    border-radius: 8px; cursor: pointer; flex: 1; min-width: 250px;
+    transition: transform 0.2s, background-color 0.2s;
+    text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+}
+.btn-pago-wsp:hover { background-color: #1EBE5D; transform: scale(1.02); color: white;}
+
 footer { text-align: center; padding: 2.5rem; background-color: var(--negro-suave); color: #A1A1AA; font-size: 0.95rem; }
+
